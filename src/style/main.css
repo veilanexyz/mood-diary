@@ -1,11 +1,13 @@
 h1 {
     font-family: Gardens CM;
     color: #4C3F3F;
+    font-size: 32px;
 }
 
 h2 {
     font-family: Gardens CM;
     color: #4C3F3F;
+    font-size: 24px;
 }
 
 a.button {
@@ -17,6 +19,7 @@ a.button {
     cursor: pointer; /* Изменение курсора при наведении */
     transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Плавные изменения при наведении */
     margin-bottom: 20px;
+    font-size: 24px;
 }
 
 html, body {

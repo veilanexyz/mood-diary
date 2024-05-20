@@ -1,8 +1,8 @@
 a.button.home {
-    background-color: white; /* Цвет фона */
-    color: #4C3F3F; /* Цвет текста */
+    background-color: white;
+    color: #4C3F3F;
 }
 
 body.homepage {
-    background: linear-gradient(to bottom, #E0EAE6, #798F86); /* Замените цвета по вашему выбору */
+    background: linear-gradient(to bottom, #E0EAE6, #798F86);
 }
