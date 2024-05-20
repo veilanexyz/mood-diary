@@ -72,7 +72,7 @@ a.button.entry {
     margin: auto;
 }
 
-.part1_container {
+.entry_container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -95,6 +95,7 @@ a.button.entry {
     flex-direction: row;
 }
 
+
 /* Scale */
 
 input[type="range"] {
@@ -104,7 +105,7 @@ input[type="range"] {
     appearance: none;
     width: 461px;
     height: 45px;
-    background-color: #ffffff7b;
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 45px;
     outline: none;
 }
@@ -137,4 +138,70 @@ input[type="range"]::-webkit-slider-runnable-track {
 input[type="range"]::-moz-range-track {
     /* Стиль заполненной части ползунка для Firefox */
     background: #dddddd00;
+}
+
+/* Форма для заметки */
+
+input[type="text"] {
+    border: none;
+    font-family: Gardens CM;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 13px;
+    width: 580px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 20px;
+    padding-left: 20px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border: 1px solid #4C3F3F;
+}
+
+/* Buttons for choose */
+
+.emotion-selector {
+    display: flex;
+    gap: 10px;
+}
+.emotions_container {
+    width: 580px;
+    /* height: 184px; */
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    overflow-y: auto;
+}
+
+.emotion-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.emotion-button {
+    font-size: 24px;
+    font-family: Gardens CM;
+    color: #4C3F3F;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 15px 20px;
+    border: none;
+    border-radius: 48px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    white-space: nowrap;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.emotion-checkbox {
+    display: none;
+}
+
+.emotion-checkbox:checked + .emotion-button {
+    background-color: #ffffff;
 }
