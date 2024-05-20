@@ -1,0 +1,36 @@
+h1 {
+    font-family: Gardens CM;
+    color: #4C3F3F;
+}
+
+h2 {
+    font-family: Gardens CM;
+    color: #4C3F3F;
+}
+
+a.button {
+    font-family: Gardens CM;
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 14px; /* Закругление углов */
+    cursor: pointer; /* Изменение курсора при наведении */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Плавные изменения при наведении */
+    margin-bottom: 20px;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow: hidden;
+    transition: background-image 0.1s ease;
+}
+
+span {
+    font-family: Gardens CM;
+    color: #4C3F3F;
+}
