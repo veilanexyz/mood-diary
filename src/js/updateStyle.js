@@ -46,4 +46,7 @@ function changeBackgroundColor(value) {
             button.style.backgroundColor = buttonColors[roundedValue];
             button.style.color = 'white';
         });
+        var rangeInput = document.querySelector('input[type="range"]');
+        rangeInput.style.setProperty('--thumb-color', buttonColors[roundedValue]); // Цвет ползунка
+
 }

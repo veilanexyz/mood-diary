@@ -5,20 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mood Diary - Choose feeling on scale</title>
     <link href='../src/style/main.css' rel='stylesheet'>
-    <script src="../src/js/background.js"></script>
+    <script src="../src/js/updateStyle.js"></script>
     <script src="../src/js/applyStyles.js" defer></script>
 </head>
 <body>
-    <h1 class="heading1">Как бы вы описали свои ощущения?</h1>
-    <h2 class="heading2">Feeling</h2>
-    <form action="">
-        <span>Очень неприятные</span>
-            <input type="range" name="feelings" id="feelings" value="3" min="0" max="6" step="0.25" oninput="changeBackgroundColor(this.value)">
-        <span>Очень приятные</span>
-        <section>
-            <a href="./index.html" class="button">Назад</a>
-            <a href="./entry_2.html" class="button">Далее</a>
-        </section>
-    </form>
+    <div class="part1_container">
+        <h1>Как бы вы описали свои ощущения?</h1>
+        <h2>Feeling</h2>
+        <div class="scale_container">
+            <input name="scale" type="range" value="3" min="0" max="6" step="0.25" oninput="changeBackgroundColor(this.value)">
+            <div>
+                <span for="scale">Очень неприятные</span>
+                <span for="scale">Очень приятные</span>
+            </div>
+        </div>
+        <div class="navigate_container">
+            <a href="./index.html" class="button entry">Назад</a>
+            <a href="./entry_2.html" class="button entry">Далее</a>
+        </div>
+    </div>
 </body>
 </html>
