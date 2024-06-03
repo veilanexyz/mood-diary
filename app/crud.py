@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from . import models, schemas
+import models, schemas
 
 def create_mood_entry(db: Session, mood_entry: schemas.MoodEntryCreate):
     db_mood_entry = models.MoodEntry(**mood_entry.dict())

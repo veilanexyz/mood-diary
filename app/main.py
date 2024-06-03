@@ -1,10 +1,11 @@
 from fastapi import FastAPI, Depends, HTTPException
-from fastapi.staticfiles import StaticFiles
+from starlette.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
-from . import models, schemas, crud
-from .database import SessionLocal, engine
+import models, schemas, crud
+from database import SessionLocal, engine
 import datetime
+import os
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -18,9 +19,15 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+current_dir = os.path.dirname(os.path.realpath(__file__))
+static_dir = os.path.join(current_dir, "static", "public")
 
-# Serve static files
-app.mount("/static", StaticFiles(directory="static"), name="static")
+# Mount the static files directory
+app.mount("/static", StaticFiles(directory=static_dir), name="static")
+
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to the Mood Diary app"}
 
 # Dependency
 def get_db():
@@ -45,3 +52,7 @@ def read_mood_entries_by_date(date: str, db: Session = Depends(get_db)):
     if not mood_entries:
         raise HTTPException(status_code=404, detail="No mood entries found for this date")
     return mood_entries
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
