@@ -21,9 +21,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-current_dir = os.path.dirname(os.path.realpath(__file__))
-static_dir = os.path.join(current_dir, "static", "public")
-
 
 # Dependency
 def get_db():
