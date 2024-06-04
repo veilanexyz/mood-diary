@@ -1,0 +1,364 @@
+h1 {
+    font-family: Gardens CM;
+    color: #4C3F3F;
+    font-size: 32px;
+    text-align: center;
+    width: 340px;
+    margin: 0;
+}
+
+h2 {
+    font-family: Gardens CM;
+    color: #4C3F3F;
+    font-size: 24px;
+    font-weight: normal;
+    margin: 0;
+}
+
+p, ul, li {
+    margin: 0;
+}
+
+/* Контейнеры */
+
+html{
+    height: 100%;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.homepage {
+    display: flex;
+    background: linear-gradient(to bottom, #E0EAE6, #798F86);
+}
+
+.home_container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 120px;
+}
+
+.proposal_container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+}
+
+.calendar-container {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 22px;
+    align-items: center;
+    background: #fff;
+    width: 462px;
+    border-radius: 30px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Gardens CM;
+    color: #4C3F3F;
+    padding: 30px 0;
+}
+
+.buttons_container {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+}
+
+.entry_container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.scale_container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.navigate_container {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.reason_container {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 20px;
+}
+
+.reasons_container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    gap: 20px;
+    width: 630px;
+}
+
+.emotions_container {
+    width: 630px;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+}
+
+/* Стиль для календаря */
+
+.calendar-navigation {
+    width: 300px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.calendar-body {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 400px;
+}
+
+.calendar-dates {
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    
+}
+
+.calendar-weekdays {
+    list-style: none;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding: 0;
+    text-align: center;
+}
+
+.calendar-current-date {
+    font-size: 24px;
+}
+
+.calendar-body li {
+    width: calc(100% / 7);
+}
+
+/* NEW */
+.calendar-dates-container {
+    /* display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+    padding: 0; */
+
+    
+    list-style: none;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    padding: 0;
+    text-align: center;
+}
+
+.line {
+    border-top: 1px solid #4C3F3F;
+    width: 100%;
+    margin: 10px;
+}
+
+.calendar-dates-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.calendar-dates-row li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.calendar-dates-container li.inactive {
+    opacity: 0;
+}
+
+.circle {
+    width: 35px;
+    height: 35px;
+    background-color: #F0F0F0;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 2px;
+}
+
+.circle.inactive {
+    opacity: 0;
+}
+
+.circles-row {
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+}
+
+/* Стили кнопок */
+
+a.button {
+    font-family: Gardens CM;
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; 
+    font-size: 24px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+a.button.home {
+    background-color: white;
+    color: #4C3F3F;
+    width: 285px;
+}
+
+a.button.entry {
+    width: 250px;
+}
+
+.emotion-button {
+    font-size: 24px;
+    font-family: Gardens CM;
+    color: #4C3F3F;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 48px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    white-space: nowrap;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Стиль для шкалы */
+
+input[type="range"] {
+    /* Удаление стандартного стиля ползунка */
+    -webkit-appearance: none; /* Для WebKit/Blink */
+    -moz-apperance: none; /* Для Firefox */
+    appearance: none;
+    width: 461px;
+    height: 45px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 45px;
+    outline: none;
+}
+
+
+input[type="range"]::-webkit-slider-thumb {
+    /* Кастомный стиль ползунка для WebKit/Blink */
+    -webkit-appearance: none;
+    width: 42px;
+    height: 42px;
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+    /* Кастомный стиль ползунка для Firefox */
+    width: 45px;
+    height: 45px;
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Стиль заполненной части ползунка */
+input[type="range"]::-webkit-slider-runnable-track {
+    /* Стиль заполненной части ползунка для WebKit/Blink */
+    background: #ffffff00;
+}
+
+input[type="range"]::-moz-range-track {
+    /* Стиль заполненной части ползунка для Firefox */
+    background: #dddddd00;
+}
+
+.scale_labels {
+    font-family: Gardens CM;
+    color: #4C3F3F;
+    font-size: 14px;
+    width: 530px;
+    display: flex;
+    justify-content:space-between;
+}
+
+/* Форма для заметки */
+
+input[type="text"] {
+    border: none;
+    font-family: Gardens CM;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 13px;
+    width: 580px;
+    padding: 15px 20px;
+    font-size: 14px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border: 1px solid #4C3F3F;
+}
+
+/* Стиль для чекбокса */
+.emotion-selector {
+    display: flex;
+    gap: 10px;
+}
+
+.emotion-checkbox {
+    display: none;
+}
+
+.emotion-checkbox:checked + .emotion-button {
+    background-color: #ffffff;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+label {
+    font-size: 24px;
+    font-family: Gardens CM;
+    color: #4C3F3F;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 48px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+input[type="checkbox"]:checked + label {
+    background-color: #ffffff;
+}
