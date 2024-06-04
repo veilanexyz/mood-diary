@@ -59,6 +59,8 @@ app.mount("/src", StaticFiles(directory="static/src"), name="js & css")
 app.mount("/", StaticFiles(directory="static/public", html=True), name="html")
 
 
+
+
 if __name__ == "__main__":
     import uvicorn
 
