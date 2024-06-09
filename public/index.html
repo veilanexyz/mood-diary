@@ -1,58 +1,43 @@
 <!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mood Diary - Homepage</title>
-    <link href="../src/style/main.css" rel="stylesheet">
-    <script src="../src/js/updateDateTime.js" defer></script>
-    <script src="../src/js/resetChanges.js" defer></script>
-    <script src="../src/js/calendar.js" defer></script>
-</head>
-<body class="homepage">
-    <!-- Main container -->
-    <div class="home_container">
-        <!-- Proposal container for mood entries -->
-        <div class="proposal_container">
-            <h1>Хотите сделать запись о своих эмоциях?</h1>
-            <!-- Links to entry page with dynamic date and time -->
-            <div class="buttons_container">
-                <a href="./entry_1.html" id="current-time" class="button home"></a>
-                <a href="./entry_1.html" id="current-date" class="button home"></a>
-            </div>
-        </div>
-        <!-- Calendar container -->
-        <div class="calendar-container">
-                <header class="calendar-navigation">
-                    <span id="calendar-prev">
-                        <svg class="arrow" width="20" height="10" viewBox="0 0 20 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M0.426166 4.48472C0.0782765 4.77359 0.0543061 5.25185 0.395191 5.54896C0.968948 6.04904 2.10152 6.87315 4.22928 7.94275C6.3463 9.00694 7.82416 9.54585 8.76126 9.81834C9.39872 10.0037 9.90636 9.45238 9.78167 8.80034C9.6308 8.01145 9.45701 6.97454 9.37382 6.01871C10.3463 6.07623 12.5043 6.16384 14.6622 5.9822C17.5738 5.73714 20 5.49207 20 5.00195C20 4.51183 17.5127 4.21319 14.6622 4.02168C12.5505 3.8798 10.3573 3.94907 9.37308 3.99381C9.45588 3.03669 9.62996 1.99721 9.78115 1.20629C9.90595 0.553421 9.3946 -0.00460102 8.75491 0.176004C7.87547 0.424299 6.53887 0.901334 4.71454 1.81609C2.42681 2.9632 1.0978 3.92702 0.426166 4.48472Z" fill="#7C6969"/>
-                        </svg>
-                    </span>
-                    <!-- Current date display -->
-                    <p class="calendar-current-date"></p>
-                    <span id="calendar-next">
-                        <svg class="arrow" width="20" height="10" viewBox="0 0 20 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.5739 5.51528C19.9218 5.22641 19.9457 4.74815 19.6048 4.45104C19.0311 3.95096 17.8985 3.12685 15.7707 2.05725C13.6537 0.993062 12.1759 0.454152 11.2388 0.18166C10.6013 -0.0036993 10.0937 0.547621 10.2184 1.19966C10.3692 1.98855 10.543 3.02546 10.6262 3.98129C9.65371 3.92377 7.49575 3.83616 5.33779 4.0178C2.42627 4.26286 0 4.50793 0 4.99805C0 5.48817 2.48736 5.78681 5.33779 5.97832C7.44949 6.1202 9.64278 6.05093 10.627 6.00619C10.5442 6.96331 10.3701 8.00279 10.2189 8.79371C10.0941 9.44658 10.6054 10.0046 11.2451 9.824C12.1246 9.5757 13.4612 9.09867 15.2855 8.18391C17.5732 7.0368 18.9022 6.07298 19.5739 5.51528Z" fill="#7C6969"/>
-                        </svg>
-                    </span>
-                </header>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
 
-            <div class="calendar-body">
-                <!-- Weekdays names -->
-                <ul class="calendar-weekdays">
-                    <li>ПН</li>
-                    <li>ВТ</li>
-                    <li>СР</li>
-                    <li>ЧТ</li>
-                    <li>ПТ</li>
-                    <li>СБ</li>
-                    <li>ВС</li>
-                </ul>
-                <!-- Dates of the month -->
-                <ul class="calendar-dates-container"></ul>
-            </div>
-        </div>
-    </div>
-</body>
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
 </html>
