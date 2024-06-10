@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { updateStyles } from './updateStyles';
+import { updateStyles } from '../services/updateStyles';
 
 class Page1 extends React.Component {
   constructor(props) {

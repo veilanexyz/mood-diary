@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { updateStyles } from "./updateStyles";
+import { updateStyles } from "../services/updateStyles";
 
 const reasons = [
   { id: "reason_1", label: "Здоровье" },

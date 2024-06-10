@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { updateStyles } from './updateStyles';
+import { updateStyles } from '../services/updateStyles';
 
 const DonePage = () => {
   const navigate = useNavigate();
