@@ -5,7 +5,7 @@ import Page2 from './pages/page2';
 import Page3 from './pages/page3';
 import DonePage from './pages/done_page';
 import Homepage from './pages/homepage';
-import './styles/App.scss';
+import './Styles/App.scss';
 
 const App = () => {
   return (

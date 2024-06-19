@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Calendar from "../components/calendar";
+import Calendar from "../Components/calendar";
 
 const Homepage = () => {
   const [currentTime, setCurrentTime] = useState("");
