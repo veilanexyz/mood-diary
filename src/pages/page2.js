@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { updateStyles } from '../services/updateStyles';
 
-const Page2 = () => {
+const Page2 = ({assistant}) => {
+   const navigate = useNavigate();
   useEffect(() => {
     const emotionsContainer = document.getElementsByClassName('emotion-selector__checkbox')[0];
     const feelingValue = localStorage.getItem('feelingsValue');
@@ -45,6 +46,22 @@ const Page2 = () => {
 
     updateStyles(feelingValue, true, true);
   }, []);
+  
+  useEffect(() => {
+    if (assistant) {
+      assistant.on('data', (event) => {
+        const { action } = event;
+        if (action?.type === 'save_feeling_description') {
+          console.log('save_feeling_description', action);
+          const emotions = action.emotions || [];
+          emotions.forEach(emotion => {
+            localStorage.setItem(emotion.toLowerCase(), true);
+          });
+          navigate('/page3');
+        }
+      });
+    }
+  }, [assistant, navigate]);
 
   const handleBackClick = () => {
     const feelingValue = localStorage.getItem('feelingsValue');
