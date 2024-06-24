@@ -22,7 +22,7 @@ const reasons = [
   { id: "reason_17", label: "Деньги" },
 ];
 
-const Page3 = () => {
+const Page3 = ({assistant}) => {
   const navigate = useNavigate();
 
   const [checkedState, setCheckedState] = useState(
@@ -64,7 +64,21 @@ const Page3 = () => {
       }, {})
     );
   };
-
+  useEffect(() => {
+    if (assistant) {
+      assistant.on("data", (event) => {
+        const { action } = event;
+        if (action?.type === "save_influence_factors") {
+          console.log("save_influence_factors", action);
+          const reasons = action.reasons || [];
+          reasons.forEach((reason) => {
+            localStorage.setItem(reason.id, true);
+          });
+          navigate("/done_page");
+        }
+      });
+    }
+  }, [assistant, navigate]);
   const handleNextClick = () => {
     navigate("/done_page");
   };
