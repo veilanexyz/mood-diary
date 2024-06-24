@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Calendar from "../Components/calendar";
 
-const Homepage = () => {
+const Homepage = ({assistant}) => {
   const [currentTime, setCurrentTime] = useState("");
   const [currentDate, setCurrentDate] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const updateDateTime = () => {
@@ -25,6 +26,17 @@ const Homepage = () => {
     return () => clearInterval(intervalId);
   }, []);
 
+  useEffect(() => {
+    if (assistant) {
+      assistant.on('data', (event) => {
+        const { action } = event;
+        if (action?.type === 'save_mood_period') {
+          console.log('save_mood_period', action);
+          navigate('/page2');
+        }
+      });
+    }
+  }, [assistant, navigate]);
   return (
     <div className="home">
       <div className="home__menu">
