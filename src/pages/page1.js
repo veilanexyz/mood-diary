@@ -6,7 +6,7 @@ class Page1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      feelingsValue: this.getInitialFeelingsValue()
+      feelingsValue: this.getInitialFeelingsValue(),
     };
   }
 
@@ -20,7 +20,7 @@ class Page1 extends React.Component {
   };
 
   updateStyles = (value) => {
-    updateStyles(value, true, true);; // Вызываем утилитную функцию для обновления стилей
+    updateStyles(value, true, true); // Вызываем утилитную функцию для обновления стилей
   };
 
   handleRangeChange = (event) => {
@@ -68,9 +68,29 @@ class Page1 extends React.Component {
           </div>
         </div>
         <div className="feeling-selection__navigate navigate">
+          <input
+            type="button"
+            to="#"
+            className="feeling-selector__navigate button-navigate"
+            onClick={() => {
+              this.resetStyles();
+              this.props.onChangePage(0);
+            }}
+            value={'Назад'}
+          />
+          <input
+            type="button"
+            to="#"
+            className="feeling-selector__navigate button-navigate"
+            onClick={() => {
+              this.props.onChangePage(2);
+            }}
+            value={'Далее'}
+          />
           {/* Добавляем обработчик событий для ссылки "Назад" */}
-          <Link to="/" className="feeling-selection__navigate-button button-navigate" onClick={this.resetStyles}>Назад</Link>
+          {/*          <Link to="/" className="feeling-selection__navigate-button button-navigate" onClick={this.resetStyles}>Назад</Link>
           <Link to="/page2" className="feeling-selection__navigate-button button-navigate">Далее</Link>
+ */}
         </div>
       </div>
     );

@@ -1,25 +1,25 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { updateStyles } from "../services/updateStyles";
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { updateStyles } from '../services/updateStyles';
 
 const reasons = [
-  { id: "reason_1", label: "Здоровье" },
-  { id: "reason_2", label: "Фитнес" },
-  { id: "reason_3", label: "Забота о себе" },
-  { id: "reason_4", label: "Хобби и увлечения" },
-  { id: "reason_6", label: "Духовная жизнь" },
-  { id: "reason_5", label: "Личность и самоопределение" },
-  { id: "reason_7", label: "Сообщество" },
-  { id: "reason_8", label: "Друзья" },
-  { id: "reason_9", label: "Партнер" },
-  { id: "reason_10", label: "Свидания и личная жизнь" },
-  { id: "reason_11", label: "Задачи" },
-  { id: "reason_12", label: "Работа" },
-  { id: "reason_13", label: "Образование" },
-  { id: "reason_14", label: "Путешествия" },
-  { id: "reason_15", label: "Погода" },
-  { id: "reason_16", label: "Текущие события" },
-  { id: "reason_17", label: "Деньги" },
+  { id: 'reason_1', label: 'Здоровье' },
+  { id: 'reason_2', label: 'Фитнес' },
+  { id: 'reason_3', label: 'Забота о себе' },
+  { id: 'reason_4', label: 'Хобби и увлечения' },
+  { id: 'reason_6', label: 'Духовная жизнь' },
+  { id: 'reason_5', label: 'Личность и самоопределение' },
+  { id: 'reason_7', label: 'Сообщество' },
+  { id: 'reason_8', label: 'Друзья' },
+  { id: 'reason_9', label: 'Партнер' },
+  { id: 'reason_10', label: 'Свидания и личная жизнь' },
+  { id: 'reason_11', label: 'Задачи' },
+  { id: 'reason_12', label: 'Работа' },
+  { id: 'reason_13', label: 'Образование' },
+  { id: 'reason_14', label: 'Путешествия' },
+  { id: 'reason_15', label: 'Погода' },
+  { id: 'reason_16', label: 'Текущие события' },
+  { id: 'reason_17', label: 'Деньги' },
 ];
 
 const Page3 = ({ assistant, onChangePage }) => {
@@ -63,6 +63,7 @@ const Page3 = ({ assistant, onChangePage }) => {
         return acc;
       }, {})
     );
+    onChangePage(2);
   };
   // useEffect(() => {
   //   if (assistant) {
@@ -80,6 +81,7 @@ const Page3 = ({ assistant, onChangePage }) => {
   //   }
   // }, [assistant, navigate]);
   const handleNextClick = () => {
+    onChangePage(4);
     // navigate("/done_page");
   };
 
@@ -111,18 +113,14 @@ const Page3 = ({ assistant, onChangePage }) => {
           type="button"
           to="#"
           className="reason-selector__navigate button-navigate"
-          onClick={() => {
-            onChangePage(2);
-          }}
+          onClick={handleBackClick}
           value={'Назад'}
         />{' '}
         <input
           type="button"
           to="#"
           className="reason-selector__navigate button-navigate"
-          onClick={() => {
-            onChangePage(3);
-          }}
+          onClick={handleNextClick}
           value={'Далее'}
         />
         {/*         <Link

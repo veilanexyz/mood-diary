@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { updateStyles } from '../services/updateStyles';
 
 const DonePage = ({ onChangePage }) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const resetStyles = () => {
     document.body.style.backgroundImage = '';
