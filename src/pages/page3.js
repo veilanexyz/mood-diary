@@ -22,22 +22,22 @@ const reasons = [
   { id: "reason_17", label: "Деньги" },
 ];
 
-const Page3 = ({assistant}) => {
-  const navigate = useNavigate();
+const Page3 = ({ assistant, onChangePage }) => {
+  // const navigate = useNavigate();
 
   const [checkedState, setCheckedState] = useState(
     reasons.reduce((acc, reason) => {
-      acc[reason.id] = localStorage.getItem(reason.id) === "true";
+      acc[reason.id] = localStorage.getItem(reason.id) === 'true';
       return acc;
     }, {})
   );
 
   useEffect(() => {
-    const feelingValue = localStorage.getItem("feelingsValue");
+    const feelingValue = localStorage.getItem('feelingsValue');
     updateStyles(feelingValue, true, true);
 
     reasons.forEach((reason) => {
-      const savedState = localStorage.getItem(reason.id) === "true";
+      const savedState = localStorage.getItem(reason.id) === 'true';
       setCheckedState((prevState) => ({
         ...prevState,
         [reason.id]: savedState,
@@ -64,23 +64,23 @@ const Page3 = ({assistant}) => {
       }, {})
     );
   };
-  useEffect(() => {
-    if (assistant) {
-      assistant.on("data", (event) => {
-        const { action } = event;
-        if (action?.type === "save_influence_factors") {
-          console.log("save_influence_factors", action);
-          const reasons = action.reasons || [];
-          reasons.forEach((reason) => {
-            localStorage.setItem(reason.id, true);
-          });
-          navigate("/done_page");
-        }
-      });
-    }
-  }, [assistant, navigate]);
+  // useEffect(() => {
+  //   if (assistant) {
+  //     assistant.on("data", (event) => {
+  //       const { action } = event;
+  //       if (action?.type === "save_influence_factors") {
+  //         console.log("save_influence_factors", action);
+  //         const reasons = action.reasons || [];
+  //         reasons.forEach((reason) => {
+  //           localStorage.setItem(reason.id, true);
+  //         });
+  //         navigate("/done_page");
+  //       }
+  //     });
+  //   }
+  // }, [assistant, navigate]);
   const handleNextClick = () => {
-    navigate("/done_page");
+    // navigate("/done_page");
   };
 
   return (
@@ -107,7 +107,25 @@ const Page3 = ({assistant}) => {
         placeholder="Можете описать здесь своими словами"
       />
       <div className="reason-selector__navigate">
-        <Link
+        <input
+          type="button"
+          to="#"
+          className="reason-selector__navigate button-navigate"
+          onClick={() => {
+            onChangePage(2);
+          }}
+          value={'Назад'}
+        />{' '}
+        <input
+          type="button"
+          to="#"
+          className="reason-selector__navigate button-navigate"
+          onClick={() => {
+            onChangePage(3);
+          }}
+          value={'Далее'}
+        />
+        {/*         <Link
           to="/page2"
           className="reason-selector__navigate button-navigate"
           onClick={handleBackClick}
@@ -119,7 +137,7 @@ const Page3 = ({assistant}) => {
           className="reason-selector__navigate button-navigate"
         >
           Далее
-        </button>
+        </button> */}
       </div>
     </div>
   );

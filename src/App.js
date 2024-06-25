@@ -1,7 +1,11 @@
 import React from 'react';
 import { createAssistant, createSmartappDebugger } from '@salutejs/client';
 import './Styles/App.scss';
-import { BrowserRouter as Router, Route, Routes /*useNavigate*/ } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes /*useNavigate*/,
+} from 'react-router-dom';
 import Page1 from './pages/page1';
 import Page2 from './pages/page2';
 import Page3 from './pages/page3';
@@ -27,16 +31,17 @@ const initializeAssistant = (getState /*: any*/, getRecoveryState) => {
 };
 
 class AppWithAssist extends React.Component {
- // navigate = useNavigate();
+  // navigate = useNavigate();
   constructor(props) {
     super(props);
     console.log('constructor');
 
     this.state = {
       //notes: [{ id: Math.random().toString(36).substring(7), title: 'тест' }],
+      page: 0,
       period: null,
       description: null,
-      factors: null
+      factors: null,
     };
 
     this.assistant = initializeAssistant(() => this.getStateForAssistant());
@@ -117,41 +122,60 @@ class AppWithAssist extends React.Component {
       }
     }
   }
-  save_mood_period(action){
+
+  save_mood_period(action) {
     console.log('save_mood_period', action);
-    this.setState({period: action.period });
-     // window.location.href = '/page2';
-   // });
+    this.setState({ page: 1, period: action.period });
+    // window.location.href = '/page2';
+    // });
   }
 
-  save_feeling_description(action){
+  save_feeling_description(action) {
     console.log('save_feeling_description', action);
-    this.setState({ feelingDescription: action.description});
-     // window.location.href = '/page3';
-   // });
+    this.setState({ page: 2, feelingDescription: action.description });
+    // window.location.href = '/page3';
+    // });
   }
 
-  save_influence_factors(action){
+  save_influence_factors(action) {
     console.log('save_influence_factors', action);
-    this.setState({ influenceFactors: action.factors});
-      //window.location.href = '/done_page';
+    this.setState({ page: 3, influenceFactors: action.factors });
+    //window.location.href = '/done_page';
     //});
   }
+  1;
+
   render() {
     console.log('render');
-    return (
-      <Router>
-        <Routes>
-        <Route path="/" element={<Homepage />} />
-       
-          <Route path="/page1" element={<Page1 />} />
-          <Route path="/page2" element={<Page2 />} />
-          <Route path="/page3" element={<Page3 />} />
-          <Route path="/done_page" element={<DonePage />} />
-        </Routes>
-      </Router>
-    );
+    switch (this.state.page) {
+      case 0:
+        return <Homepage onChangePage={(page) => this.setState({ page })} />;
+      case 1:
+        return <Page1 onChangePage={(page) => this.setState({ page })} />;
+      case 2:
+        return <Page2 onChangePage={(page) => this.setState({ page })} />;
+      case 3:
+        return <Page3 onChangePage={(page) => this.setState({ page })} />;
+      case 4:
+        return <DonePage onChangePage={(page) => this.setState({ page })} />;
+      default:
+        return <div>{'Неправильный номер страницы: ' + this.state.page}</div>;
+    }
   }
+  //   console.log('render');
+  //   return (
+  //     <Router>
+  //       <Routes>
+  //       <Route path="/" element={<Homepage />} />
+
+  //         <Route path="/page1" element={<Page1 />} />
+  //         <Route path="/page2" element={<Page2 />} />
+  //         <Route path="/page3" element={<Page3 />} />
+  //         <Route path="/done_page" element={<DonePage />} />
+  //       </Routes>
+  //     </Router>
+  //   );
+  // }
 }
 
 export default AppWithAssist;
