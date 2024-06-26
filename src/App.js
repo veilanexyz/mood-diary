@@ -119,7 +119,7 @@ class AppWithAssist extends React.Component {
   }
   save_mood_period(action) {
     console.log('save_mood_period', action);
-    this.setState({ period: action.period }, () => {
+    this.setState({period: action.period }, () => {
       window.location.href = '/page2';
     });
   }
