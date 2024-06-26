@@ -117,33 +117,29 @@ class AppWithAssist extends React.Component {
       }
     }
   }
-  save_mood_period(action){
+  save_mood_period(action) {
     console.log('save_mood_period', action);
-    this.setState({period: action.period }, () => {
+    this.setState({ period: action.period }, () => {
       window.location.href = '/page2';
     });
   }
 
-  save_feeling_description(action){
+  save_feeling_description(action) {
     console.log('save_feeling_description', action);
-    this.setState({ feelingDescription: action.description});
-     // window.location.href = '/page3';
-   // });
+    this.setState({ feelingDescription: action.description });
   }
 
-  save_influence_factors(action){
+  save_influence_factors(action) {
     console.log('save_influence_factors', action);
-    this.setState({ influenceFactors: action.factors});
-      //window.location.href = '/done_page';
-    //});
+    this.setState({ influenceFactors: action.factors });
   }
+
   render() {
     console.log('render');
     return (
       <Router>
         <Routes>
-        <Route path="/" element={<Homepage />} />
-       
+          <Route path="/" element={<Homepage />} />
           <Route path="/page1" element={<Page1 />} />
           <Route path="/page2" element={<Page2 />} />
           <Route path="/page3" element={<Page3 />} />

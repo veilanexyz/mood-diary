@@ -14,7 +14,7 @@ models.database.Base.metadata.create_all(bind=database.engine)
 app = FastAPI()
 
 origins = [
-    "http://localhost:3000"
+    "http://localhost:3000"  # Адрес вашего React-приложения
 ]
 
 app.add_middleware(
@@ -24,7 +24,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 # Dependency
 def get_db():
     db = SessionLocal()
@@ -57,8 +56,8 @@ def read_mood_entries_by_date(date: date, db: Session = Depends(get_db)):
     return mood_entries
 
 # Mount the static files directory
-app.mount("/", StaticFiles(directory="app/static/build/static"), name="js & css")
-app.mount("/", StaticFiles(directory="app/static/build", html=True), name="html")
+app.mount("/static/build", StaticFiles(directory="app/static/build/static"), name="js & css")
+app.mount("/static", StaticFiles(directory="app/static/build", html=True), name="html")
 
 if __name__ == "__main__":
     import uvicorn
